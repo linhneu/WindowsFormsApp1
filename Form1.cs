@@ -14,6 +14,8 @@ namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
     {
+
+        private BindingSource bindingSource1 = new BindingSource();
         public Form1()
         {
             InitializeComponent();
@@ -21,44 +23,39 @@ namespace WindowsFormsApp1
 
         private void Form1_Load(object sender, EventArgs e)
         {
+
             Console.WriteLine("Getting Connection ...");
-            SqlConnection conn = DBSQLServerUtils.GetDBConnection("DESKTOP-LSEGFR1\\SQLEXPRESS", "QUAN_LY_NHAN_SU");
 
-            SqlCommand sqlCommand;
-            SqlDataReader dataReader;
-            String sql; 
-            sql = "select * from NHANVIEN";
-            sqlCommand = new SqlCommand(sql, conn);
-
-            SqlDataAdapter adapter = new SqlDataAdapter(sql, conn);
+            DataTable dataTable = DBSQLServerUtils.loadData("PHONGBAN");
+            bindingSource1.DataSource = dataTable;
+            dataGridView1.DataSource = bindingSource1;
 
 
-            DataSet customers = new DataSet();
-            adapter.Fill(customers, "Customers");
+        }
+        public void updateQuery()
+        {
 
-            sqlCommand.Dispose();
-            conn.Close(); 
-
-            
         }
 
+      
 
-        private void readByRow(SqlCommand  sqlCommand)
+      
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            SqlDataReader dataReader = sqlCommand.ExecuteReader();
-          
-            while (dataReader.Read())
-            {
-                for (int i = 0; i < dataReader.FieldCount; i++)
-                {
-                    Console.WriteLine(dataReader.GetValue(i) + "  ");
 
+        }
 
-                }
-                Console.WriteLine("=================");
-            }; 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string tableName = tbTableName.Text;
 
+            Console.WriteLine("Getting Connection ...");
 
+            DataTable dataTable = DBSQLServerUtils.loadData(tableName);
+            bindingSource1.DataSource = dataTable;
+
+            
         }
     }
 }
