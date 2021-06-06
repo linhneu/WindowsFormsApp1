@@ -57,6 +57,28 @@ namespace WindowsFormsApp1
             conn.Close();
             return dataTable; 
         }
+        // update table 
+        // insert table 
+
+        public static void insert(string insertQuery)
+        {
+
+            SqlConnection conn = GetDBConnection();
+            SqlCommand updateCmd = new SqlCommand(insertQuery, conn);
+            updateCmd.CommandType = CommandType.Text;
+            updateCmd.ExecuteNonQuery();
+           
+            conn.Close();
+
+        }
+        public static void update(String sql)
+        {
+            SqlConnection conn = GetDBConnection();
+            SqlCommand updateCmd = new SqlCommand(sql, conn);
+            updateCmd.CommandType = CommandType.Text;
+            updateCmd.ExecuteNonQuery();
+            conn.Close();
+        }
 
         private void readByRow(SqlCommand sqlCommand)
         {
