@@ -18,6 +18,8 @@ namespace WindowsFormsApp1
         private string diachi;
         private string chucNang;
         private string soDienThoai;
+        private string ngayTL;
+      
         private SqlConnection conn;
         private SqlCommand cmd; 
 
@@ -26,6 +28,11 @@ namespace WindowsFormsApp1
         public string Diachi { get => diachi; set => diachi = value; }
         public string ChucNang { get => chucNang; set => chucNang = value; }
         public string SoDienThoai { get => soDienThoai; set => soDienThoai = value; }
+
+        public string NgayTL { get => ngayTL; set => ngayTL = value; }
+
+     
+
 
         public PhongBanSQLCommand()
         {
@@ -42,9 +49,9 @@ namespace WindowsFormsApp1
             {
                 if (maPhongBan != null && maPhongBan != "")
                 {
-                    cmd = new SqlCommand("delete from PHONGBAN where maphongban=@id", conn);
+                    cmd = new SqlCommand("delete from PHONGBAN where maphongban=@MaPhongBan", conn);
 
-                    cmd.Parameters.AddWithValue("@id", maPhongBan);
+                    cmd.Parameters.AddWithValue("@MaPhongBan", maPhongBan);
                     cmd.ExecuteNonQuery();
                     conn.Close();
                     MessageBox.Show("Record Deleted Successfully!");
@@ -66,16 +73,17 @@ namespace WindowsFormsApp1
         {
             if (conn == null)
                 conn = DBSQLServerUtils.GetDBConnection();
-            if (tenPhongBan != "" && tenPhongBan != null && maPhongBan != "" && maPhongBan != null)
+            if (maPhongBan != "" && tenPhongBan != null && maPhongBan != "" && chucNang != null)
             {
-                string insertQuery = "insert into PHONGBAN values (@maPhongBan, @tenPB, @diaChiPb , @chucNangPB, @sdtPB )"; 
+                string insertQuery = " insert into PHONGBAN values (@MaPhongBan, @tenPB, @ngayTL , @diaChi, @chucNang, @sdt)"; 
                 cmd = new SqlCommand(insertQuery, conn);
 
-                cmd.Parameters.AddWithValue("@maPhongBan", maPhongBan);
+                cmd.Parameters.AddWithValue("@MaPhongBan", maPhongBan);
                 cmd.Parameters.AddWithValue("@tenPB", tenPhongBan);
-                cmd.Parameters.AddWithValue("@diaChiPB", diachi);
-                cmd.Parameters.AddWithValue("@sdtPB", SoDienThoai);
-                cmd.Parameters.AddWithValue("@chucNangPB", chucNang);
+                cmd.Parameters.AddWithValue("@diaChi", diachi);
+                cmd.Parameters.AddWithValue("@sdt", SoDienThoai);
+                cmd.Parameters.AddWithValue("@chucNang", chucNang);
+                cmd.Parameters.AddWithValue("@ngayTL", ngayTL);
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Record insert Successfully");
                 conn.Close();
@@ -83,7 +91,7 @@ namespace WindowsFormsApp1
             }
             else
             {
-                MessageBox.Show("Please Select Record to Update");
+                MessageBox.Show("Something Wrong");
             }
 
         }
@@ -95,11 +103,12 @@ namespace WindowsFormsApp1
             if (tenPhongBan != "" && tenPhongBan != null && maPhongBan != "" && maPhongBan != null)
             {
                 string updateQuery = "update PHONGBAN set " +
-                    " tenphongban=@tenPB ," +
-                    " chucnang=@chucNangPB, " +
-                    " diachi=@diaChiPB, " +
-                    " sodt = @sdtPB " +
-                    " where maphongban=@id";
+                    " TenPhongBan=@tenPB ," +
+                    " DiaChi=@diaChiPB, " +
+                    " SDT = @sdtPB,  " +
+                    " ChucNang = @ChucNangPB,  " +
+                    " NgayThanhLap = @ngayTL  " + 
+                    " where MaPhongBan= @id";
                 SqlCommand cmd = new SqlCommand(updateQuery, conn);
 
 
@@ -107,8 +116,9 @@ namespace WindowsFormsApp1
                 cmd.Parameters.AddWithValue("@tenPB", tenPhongBan);
                 cmd.Parameters.AddWithValue("@diaChiPB", diachi);
                 cmd.Parameters.AddWithValue("@sdtPB", SoDienThoai);
-                cmd.Parameters.AddWithValue("@chucNangPB", chucNang); 
+                cmd.Parameters.AddWithValue("@ngayTL", ngayTL);
 
+                cmd.Parameters.AddWithValue("@ChucNangPB", chucNang); 
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Record Updated Successfully");
                 conn.Close();

@@ -28,7 +28,7 @@ namespace WindowsFormsApp1
         public static SqlConnection GetDBConnection()
         {
        
-            string connString = @"Data Source=DESKTOP-LSEGFR1\SQLEXPRESS;Initial Catalog=QUAN_LY_NHAN_SU;Integrated Security=True";
+            string connString = @"Data Source=localhost;Initial Catalog=QUAN_LY_NHAN_SU;Integrated Security=True";
             SqlConnection conn = new SqlConnection(connString);
             conn.Open();
             return conn;

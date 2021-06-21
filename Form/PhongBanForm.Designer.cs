@@ -48,6 +48,8 @@ namespace WindowsFormsApp1
             this.btnClear = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dtNgayThanhLap = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qUAN_LY_NHAN_SUDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qUANLYNHANSUDataSetBindingSource)).BeginInit();
@@ -83,7 +85,7 @@ namespace WindowsFormsApp1
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(47, 115);
+            this.label3.Location = new System.Drawing.Point(47, 121);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(82, 13);
             this.label3.TabIndex = 5;
@@ -101,7 +103,7 @@ namespace WindowsFormsApp1
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(47, 153);
+            this.label5.Location = new System.Drawing.Point(47, 151);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(41, 13);
             this.label5.TabIndex = 7;
@@ -110,7 +112,7 @@ namespace WindowsFormsApp1
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(47, 203);
+            this.label6.Location = new System.Drawing.Point(317, 79);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(61, 13);
             this.label6.TabIndex = 8;
@@ -119,7 +121,7 @@ namespace WindowsFormsApp1
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(47, 249);
+            this.label7.Location = new System.Drawing.Point(317, 125);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(29, 13);
             this.label7.TabIndex = 9;
@@ -134,35 +136,35 @@ namespace WindowsFormsApp1
             // 
             // tbSDT
             // 
-            this.tbSDT.Location = new System.Drawing.Point(140, 242);
+            this.tbSDT.Location = new System.Drawing.Point(410, 118);
             this.tbSDT.Name = "tbSDT";
             this.tbSDT.Size = new System.Drawing.Size(142, 20);
             this.tbSDT.TabIndex = 13;
             // 
             // tbChucNang
             // 
-            this.tbChucNang.Location = new System.Drawing.Point(140, 196);
+            this.tbChucNang.Location = new System.Drawing.Point(410, 72);
             this.tbChucNang.Name = "tbChucNang";
             this.tbChucNang.Size = new System.Drawing.Size(142, 20);
             this.tbChucNang.TabIndex = 14;
             // 
             // tbDiaChi
             // 
-            this.tbDiaChi.Location = new System.Drawing.Point(140, 153);
+            this.tbDiaChi.Location = new System.Drawing.Point(140, 151);
             this.tbDiaChi.Name = "tbDiaChi";
             this.tbDiaChi.Size = new System.Drawing.Size(142, 20);
             this.tbDiaChi.TabIndex = 15;
             // 
             // tbTenPhongBan
             // 
-            this.tbTenPhongBan.Location = new System.Drawing.Point(140, 113);
+            this.tbTenPhongBan.Location = new System.Drawing.Point(140, 118);
             this.tbTenPhongBan.Name = "tbTenPhongBan";
             this.tbTenPhongBan.Size = new System.Drawing.Size(142, 20);
             this.tbTenPhongBan.TabIndex = 16;
             // 
             // btnThem
             // 
-            this.btnThem.Location = new System.Drawing.Point(324, 76);
+            this.btnThem.Location = new System.Drawing.Point(271, 229);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(75, 23);
             this.btnThem.TabIndex = 17;
@@ -172,7 +174,7 @@ namespace WindowsFormsApp1
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(324, 200);
+            this.btnClear.Location = new System.Drawing.Point(579, 229);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 23);
             this.btnClear.TabIndex = 18;
@@ -182,7 +184,7 @@ namespace WindowsFormsApp1
             // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(324, 153);
+            this.btnXoa.Location = new System.Drawing.Point(477, 229);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(75, 23);
             this.btnXoa.TabIndex = 19;
@@ -192,7 +194,7 @@ namespace WindowsFormsApp1
             // 
             // btnSua
             // 
-            this.btnSua.Location = new System.Drawing.Point(324, 113);
+            this.btnSua.Location = new System.Drawing.Point(374, 229);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(75, 23);
             this.btnSua.TabIndex = 20;
@@ -200,11 +202,29 @@ namespace WindowsFormsApp1
             this.btnSua.UseVisualStyleBackColor = true;
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
-            // Form1
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(317, 159);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(87, 13);
+            this.label2.TabIndex = 21;
+            this.label2.Text = "Ngày Thành Lập";
+            // 
+            // dtNgayThanhLap
+            // 
+            this.dtNgayThanhLap.Location = new System.Drawing.Point(410, 154);
+            this.dtNgayThanhLap.Name = "dtNgayThanhLap";
+            this.dtNgayThanhLap.Size = new System.Drawing.Size(200, 20);
+            this.dtNgayThanhLap.TabIndex = 22;
+            // 
+            // PhongBanForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dtNgayThanhLap);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnSua);
             this.Controls.Add(this.btnXoa);
             this.Controls.Add(this.btnClear);
@@ -221,7 +241,7 @@ namespace WindowsFormsApp1
             this.Controls.Add(this.label3);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
-            this.Name = "Form1";
+            this.Name = "PhongBanForm";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -252,6 +272,8 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnSua;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DateTimePicker dtNgayThanhLap;
     }
 }
 

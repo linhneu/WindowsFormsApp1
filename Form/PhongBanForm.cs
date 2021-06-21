@@ -59,24 +59,30 @@ namespace WindowsFormsApp1
 
                 DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
 
-                tbMaPhongBan.Text = row.Cells["maphongban"].Value.ToString();
-                tbTenPhongBan.Text = row.Cells["tenphongban"].Value.ToString();
-                tbDiaChi.Text = row.Cells["diachi"].Value.ToString();
-                tbChucNang.Text = row.Cells["chucnang"].Value.ToString();
-                tbSDT.Text = row.Cells["sodt"].Value.ToString(); 
+                tbMaPhongBan.Text = row.Cells["MaPhongBan"].Value.ToString();
+                tbTenPhongBan.Text = row.Cells["TenPhongBan"].Value.ToString();
+                tbDiaChi.Text = row.Cells["DiaChi"].Value.ToString();
+                tbChucNang.Text = row.Cells["ChucNang"].Value.ToString();
+                tbSDT.Text = row.Cells["SDT"].Value.ToString();
+                string dateTimeString = row.Cells["NgayThanhLap"].Value.ToString();
+                dtNgayThanhLap.Value = DataUtils.convertStringToDate(dateTimeString); 
+               
             }
 
         }
+     
 
 
         private PhongBanSQLCommand getPhongBanObject ()
         {
             PhongBanSQLCommand phongBan = new PhongBanSQLCommand();
+          
             phongBan.MaPhongBan = tbMaPhongBan.Text;
             phongBan.TenPhongBan = tbTenPhongBan.Text;
             phongBan.Diachi = tbDiaChi.Text;
             phongBan.ChucNang = tbChucNang.Text;
             phongBan.SoDienThoai = tbSDT.Text;
+            phongBan.NgayTL = dtNgayThanhLap.Value.ToShortDateString();
             return phongBan;
         }
 
@@ -90,6 +96,7 @@ namespace WindowsFormsApp1
             tbChucNang.Text = null;
             tbDiaChi.Text = null;
             tbSDT.Text = null;
+            
         }
         private void btnClear_Click(object sender, EventArgs e)
         {

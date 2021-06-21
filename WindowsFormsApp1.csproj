@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomCommand\USER\UserSQLCommand.cs" />
+    <Compile Include="DataUtils.cs" />
     <Compile Include="DBSQLServerUtils.cs" />
     <Compile Include="Form\PhongBanForm.cs">
       <SubType>Form</SubType>
